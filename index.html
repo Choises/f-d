@@ -31,20 +31,19 @@
 }
 
        
-        /* Το Container του Player - Διορθωμένο για Desktop View στο Κινητό */
+      
+
 .player-container {
-    width: 100vw; /* Χρησιμοποιεί το 100% του πλάτους της οθόνης του κινητού αναγκαστικά */
+    width: 100%; 
     height: 100%;
-    max-width: 480px; /* Κρατάει το όριο αν ανοίξει σε πραγματικό υπολογιστή */
     background: linear-gradient(180deg, #181822 0%, #0a0a0f 100%);
-    border-radius: 28px; 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: none; 
     position: relative;
 }
+
 
 
       
@@ -611,29 +610,7 @@ playBtn.addEventListener('click', () => {
     
     audio.volume = volumeSlider.value / 100;
 });
-function fixDesktopViewOnMobile() {
-  
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-   
-    if (isMobile && window.innerWidth > 768) {
-       
-        const zoomFactor = window.screen.width / window.innerWidth;
-        document.body.style.transform = `scale(${1 / zoomFactor})`;
-        document.body.style.transformOrigin = 'center center';
-        document.body.style.width = (100 * zoomFactor) + 'vw';
-        document.body.style.height = (100 * zoomFactor) + 'vh';
-    } else {
-       
-        document.body.style.transform = 'none';
-        document.body.style.width = '100%';
-        document.body.style.height = '100svh';
-    }
-}
 
-
-fixDesktopViewOnMobile();
-window.addEventListener('resize', fixDesktopViewOnMobile);
 
 </script>
 </body>
