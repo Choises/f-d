@@ -31,27 +31,22 @@
 }
 
        
-        .player-container {
-            width: 100%;
-            height: 100%;
-            max-width: 480px;
-            background: linear-gradient(180deg, #181822 0%, #0a0a0f 100%);
-            border-radius: 28px; 
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-        }
-
- 
-@media (max-width: 767px) {
-    .player-container {
-        max-width: 100% !important; 
-        border-radius: 0px; 
-    }
+        /* Το Container του Player - Διορθωμένο για Desktop View στο Κινητό */
+.player-container {
+    width: 100vw; /* Χρησιμοποιεί το 100% του πλάτους της οθόνης του κινητού αναγκαστικά */
+    height: 100%;
+    max-width: 480px; /* Κρατάει το όριο αν ανοίξει σε πραγματικό υπολογιστή */
+    background: linear-gradient(180deg, #181822 0%, #0a0a0f 100%);
+    border-radius: 28px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
+
+
       
         .widget-area {
             width: 100%;
