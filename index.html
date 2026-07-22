@@ -611,7 +611,29 @@ playBtn.addEventListener('click', () => {
     
     audio.volume = volumeSlider.value / 100;
 });
+function fixDesktopViewOnMobile() {
+  
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+   
+    if (isMobile && window.innerWidth > 768) {
+       
+        const zoomFactor = window.screen.width / window.innerWidth;
+        document.body.style.transform = `scale(${1 / zoomFactor})`;
+        document.body.style.transformOrigin = 'center center';
+        document.body.style.width = (100 * zoomFactor) + 'vw';
+        document.body.style.height = (100 * zoomFactor) + 'vh';
+    } else {
+       
+        document.body.style.transform = 'none';
+        document.body.style.width = '100%';
+        document.body.style.height = '100svh';
+    }
+}
 
+
+fixDesktopViewOnMobile();
+window.addEventListener('resize', fixDesktopViewOnMobile);
 
 </script>
 </body>
